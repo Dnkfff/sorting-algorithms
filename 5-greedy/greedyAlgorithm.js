@@ -57,12 +57,12 @@ function minTree(matrix) {
     for (let i = 0 ; i < matrix.length; i++) {
         for (let j = i+1 ; j < matrix.length; j++) {
             if ( matrix[i][j] !== 0) {
-                obj[${i}${j}] = matrix[i][j];
+                obj[`${i}${j}`] = matrix[i][j];
             }
         }
     }
 for (let key in obj) {
-    array[obj[${key}]].push(key);
+    array[obj[`${key}`]].push(key);
 }
 
 //starting our iteration from nodes which have smallest length
