@@ -1,3 +1,4 @@
+'use strict';
 
 //implementation of the greedy algorithm for the traveling salesman task
 function DFS(matrix, a) {
@@ -79,30 +80,22 @@ for (let key in obj) {
      if (count === matrix.length) break;
 
     if ( array[i][0] !== undefined ) {
+
         //Перебираємо усі ребра що мають однакову довжину
         for (let q = 0; q < array[i].length; q++) {
             flag = true;
             plus = true;
             for (let j = 0 ; j < mnoj.length; j++){
-                if ( mnoj[j].includes(array[i][q][0]) && mnoj[j].includes(array[i][q][1]) ) {flag = false;break;}
+                if ( mnoj[j].includes(array[i][q][0]) && mnoj[j].includes(array[i][q][1]) ) {flag = false; break }
 
-                else if ( mnoj[j].includes(array[i][q][0]) &&  !mnoj[j].includes(array[i][q][1]))  {plus = false; mnoj[j].push(array[i][q][1]);break}
+                else if ( mnoj[j].includes(array[i][q][0]) &&  !mnoj[j].includes(array[i][q][1]))  { plus = false;mnoj[j].push(array[i][q][1]);break }
 
-                else if ( !mnoj[j].includes(array[i][q][0]) && mnoj[j].includes(array[i][q][1]) ) {plus = false; mnoj[j].push(array[i][q][0]);break}
+                else if ( !mnoj[j].includes(array[i][q][0]) && mnoj[j].includes(array[i][q][1]) ) { plus = false;mnoj[j].push(array[i][q][0]);break }
         }
 
-        if (plus === true && flag === true) { mnoj.push([array[i][q][0], array[i][q][1]]); }
+        if (plus === true && flag === true) {mnoj.push([array[i][q][0], array[i][q][1]])}
 
-      /*  for (let n = 0 ; n < mnoj.length; n++) {
-            for (let m = 0 ; m < mnoj.length; m++) {
-                if (mnoj[n].includes(mnoj[m][0]) && mnoj[n].includes(mnoj[m][1]) ) {
-                    flag = false;
-                    mnoj[mnoj.length] = mnoj[n].concat(mnoj[m]);
-                }
-            }
-        }
-        */
-        if (flag === true) { result[array[i][q][0]][array[i][q][1]] = i; result[array[i][q][1]][array[i][q][0]] = i; }
+        if (flag === true) {result[array[i][q][0]][array[i][q][1]] = i; result[array[i][q][1]][array[i][q][0]] = i}
 
     }
     }
