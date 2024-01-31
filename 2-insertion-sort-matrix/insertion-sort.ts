@@ -1,4 +1,4 @@
-const input = [
+const input: number[][] = [
   [0, 1 ,5, 3, 3],
   [3, 7, 2, 1, 2],
   [5, 2, 4, 3, 1],
@@ -6,7 +6,7 @@ const input = [
   [6, 4, 3, 1, 5]
 ];
 
-const inversions = arr => {
+const inversions = (arr: number[]): number => {
   let count = 0;
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
@@ -16,9 +16,9 @@ const inversions = arr => {
   return count;
 };
 
-const compare = (matrix, x) => {
-  const list = [];
-  const diffs = [];
+const compare = (matrix: number[][], x: number): void => {
+  const list: [number, number][] = [];
+  const diffs: [number, number][] = [];
   
   for (let i = 0; i < matrix.length; i++) {
     const user = matrix[i];
@@ -41,7 +41,6 @@ const compare = (matrix, x) => {
     const user = val[0];
     console.log(list[user]);
   })
- 
 }
 
 compare(input, 4);

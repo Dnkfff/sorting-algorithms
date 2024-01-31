@@ -1,11 +1,11 @@
 'use strict'
 
-function Piramida(arr) {
-    let temp = [];
-    let k = 1;
+function Piramida(arr: number[]): void {
+    let temp: number[] = [];
+    let k: number = 1;
     while (k <= arr.length) {
         temp = [];
-        for ( let i = 0; i < k; i++) {
+        for ( let i: number = 0; i < k; i++) {
             temp.push(arr[i]);
         }
         temp.sort();
