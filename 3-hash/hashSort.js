@@ -56,8 +56,8 @@ function search (arr, int) {
     let count = false;
     for (let i = 0 ; i < arr.length; i++) {
         for ( let j = i+1; j < arr.length; j++) {
-            ht.setElement(${i+1}+${j+1}, arr[i] + arr[j])
-            if (ht.getElement(${i+1}+${j+1}) === int) count = true;
+            ht.setElement(`${i+1}`+`${j+1}`, arr[i] + arr[j])
+            if (ht.getElement(`${i+1}`+`${j+1}`) === int) count = true;
         }
     }
     console.log(count);
