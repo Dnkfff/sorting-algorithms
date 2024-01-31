@@ -1,18 +1,20 @@
 'use strict';
 
 class Item {
-  constructor(wi, vi){
+  constructor(wi: number, vi: number){
     this.wi = wi;
     this.vi = vi;
   }
+  wi: number;
+  vi: number;
 }
 
-const max = (a, b) => (a > b) ? a : b;
+const max = (a: number, b: number): number => (a > b) ? a : b;
 
-const fillInBackpack = (items, w) => {
+const fillInBackpack = (items: Item[], w: number): { cost: number, itemsInBackpack: Item[] } => {
   const n = items.length-1;
-  const itemsInBackpack = [];
-  const v = (i, x) => {
+  const itemsInBackpack: Item[] = [];
+  const v = (i: number, x: number): number => {
     if(i == -1) {
       return 0;
     }
@@ -42,7 +44,7 @@ const fillInBackpack = (items, w) => {
   return { cost, itemsInBackpack };
 }
 
-const inputItems = [
+const inputItems: [number, number][] = [
   [10, 12],
   [1, 2],
   [5, 6],
@@ -58,10 +60,10 @@ const inputItems = [
   [6, 12]
 ];
 // inputed backpack "W" parameter
-const w = 100;
+const w: number = 100;
 
 // create items
-const items = [];
+const items: Item[] = [];
 inputItems.forEach( item => {
   items.push(new Item(...item));
 });
