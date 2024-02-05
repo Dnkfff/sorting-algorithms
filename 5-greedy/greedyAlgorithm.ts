@@ -1,14 +1,14 @@
 'use strict';
 
 //implementation of the greedy algorithm for the traveling salesman task
-function DFS(matrix, a) {
-    let stack = [];
-    let k = 1;
-    let numbersOfPoint = [];
-    let activePoint = 0;
-    let flag = true;
+function DFS(matrix: number[][], a: number): number[] {
+    let stack: number[] = [];
+    let k: number = 1;
+    let numbersOfPoint: number[] = [];
+    let activePoint: number = 0;
+    let flag: boolean = true;
 
-    for (let i = 0 ; i < matrix.length; i++) {
+    for (let i: number = 0 ; i < matrix.length; i++) {
         numbersOfPoint[i] = 0;
     }
 
@@ -18,7 +18,7 @@ function DFS(matrix, a) {
     while (stack.length > 0) {
         flag = true;
         activePoint = stack[stack.length -1];
-        for (let i = 0 ; i < matrix.length; i++) {
+        for (let i: number = 0 ; i < matrix.length; i++) {
             if (matrix[activePoint][i] !== 0 && numbersOfPoint[i] === 0) {
                 k++;
                 numbersOfPoint[i] = k;
@@ -34,29 +34,29 @@ function DFS(matrix, a) {
     return numbersOfPoint;
 };
 
-function minTree(matrix) {
-    let result = [];
-    let array = [];
-    let mnoj = [];
-    let obj = {};
-    let count = 0;
-    let flag = true;
-    let plus = true;
-    let flagarr = [];
+function minTree(matrix: number[][]): number[][] {
+    let result: number[][] = [];
+    let array: string[][] = [];
+    let mnoj: string[][] = [];
+    let obj: {[key: string]: number} = {};
+    let count: number = 0;
+    let flag: boolean = true;
+    let plus: boolean = true;
+    let flagarr: number[] = [];
 
-    for (let i = 0 ; i < 100; i++) {
+    for (let i: number = 0 ; i < 100; i++) {
         array[i] = [];
     }
 
-    for (let i = 0 ; i < matrix.length; i++) {
+    for (let i: number = 0 ; i < matrix.length; i++) {
         result[i] = [];
-        for (let j = 0 ; j < matrix.length; j++) {
+        for (let j: number = 0 ; j < matrix.length; j++) {
             result[i][j]= 0;
         }
     }
 
-    for (let i = 0 ; i < matrix.length; i++) {
-        for (let j = i+1 ; j < matrix.length; j++) {
+    for (let i: number = 0 ; i < matrix.length; i++) {
+        for (let j: number = i+1 ; j < matrix.length; j++) {
             if ( matrix[i][j] !== 0) {
                 obj[`${i}${j}`] = matrix[i][j];
             }
@@ -67,14 +67,14 @@ for (let key in obj) {
 }
 
 //starting our iteration from nodes which have smallest length
- for (let i = 0 ; i < array.length; i++ ) {
+ for (let i: number = 0 ; i < array.length; i++ ) {
 
     //on each step of iteration checking is number of checked nodes != matrix length
     flagarr = 0;
     count = 0;
     flagarr = DFS(result,1);
     console.log(flagarr);
-     for (let j = 0 ; j < flagarr.length; j++) {
+     for (let j: number = 0 ; j < flagarr.length; j++) {
          if (flagarr[j] !== 0 ) {count++;}
      }
      if (count === matrix.length) break;
@@ -82,10 +82,10 @@ for (let key in obj) {
     if ( array[i][0] !== undefined ) {
 
         //Перебираємо усі ребра що мають однакову довжину
-        for (let q = 0; q < array[i].length; q++) {
+        for (let q: number = 0; q < array[i].length; q++) {
             flag = true;
             plus = true;
-            for (let j = 0 ; j < mnoj.length; j++){
+            for (let j: number = 0 ; j < mnoj.length; j++){
                 if ( mnoj[j].includes(array[i][q][0]) && mnoj[j].includes(array[i][q][1]) ) {flag = false; break }
 
                 else if ( mnoj[j].includes(array[i][q][0]) &&  !mnoj[j].includes(array[i][q][1]))  { plus = false;mnoj[j].push(array[i][q][1]);break }
