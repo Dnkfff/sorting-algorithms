@@ -14,5 +14,5 @@ const BackBubbleSort = (arr: number[] | string[]): (number | string)[] => {
     return arr;
 }
 
-console.log(BackBubbleSort(array));
+//console.log(BackBubbleSort(array));
 console.log(BackBubbleSort(arr));
